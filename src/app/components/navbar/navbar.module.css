@@ -1,0 +1,39 @@
+.navbar {
+    height: 60px;
+    position: fixed;
+    background-color: yellow;
+    width: 100%;
+    text-align: center;
+}
+
+.btn_search {
+    display: flex;
+    gap: 10px;
+    width: 200px;
+    margin: 20px auto;
+    border-bottom: 1px solid black;
+}
+
+.btn_search svg {
+    font-size: 1.5em;
+    color: black;
+}
+
+.btn_search button {
+    background-color: transparent;
+    border: none;
+}
+
+.btn_search input {
+    border-bottom: 1px solid lightgray;
+    border: none;
+    background-color: transparent;
+}
+
+/* sem bordas quando clicar no input */
+.btn_search input:focus {
+    outline: none;
+}
+
+
+
