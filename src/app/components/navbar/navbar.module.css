@@ -30,6 +30,20 @@
     background-color: transparent;
 }
 
+/* mensagem que aparece quando o input do search está sem texto */
+.box_msg_ativado {
+    margin: 200px auto;
+}
+
+.box_msg_ativado p {
+    background-color: red;
+}
+
+.box_msg_desativado {
+    display: none;
+    opacity: 0;
+}
+
 /* sem bordas quando clicar no input */
 .btn_search input:focus {
     outline: none;

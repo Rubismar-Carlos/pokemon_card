@@ -15,11 +15,29 @@ export default function Navbar() {
     const [resultsSearch, setResultsSearch] = useState([])
     const [textSearch, setTextSearch] = useState(false)
     const [searchModal, setSearchModal] = useState(false)
+    const [msg, setMsg] = useState("")
+    const [boxMsg, setBoxMsg] = useState(false)
 
     const handleCloseSearch = () => setSearchModal(false)
 
 
     const handleSearch = async() => {
+
+        // Box de mensagem na tela
+        setBoxMsg(true)
+
+        // ira resetar a mensagem do input
+        setTimeout(() => {
+            setMsg("")
+            setBoxMsg(false)
+        }, 2000)
+
+        // checar se o input está recebendo algum texto
+        if(searchPokemon === "") {
+            return setMsg("Coloque o nome do Pokemon")
+        }
+
+        // pesquisando o nome do pokemon pela api
         try {
             const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${searchPokemon}`)
             setResultsSearch([response.data])
@@ -35,8 +53,11 @@ export default function Navbar() {
     return <nav className={styles.navbar}>
 
         <div className={styles.btn_search}>
-            <button onClick={handleSearch} disabled={ searchPokemon === ""}>< BsSearch /></button>
+            <button onClick={handleSearch}>< BsSearch /></button>
             <input type="text" placeholder='Buscar por pokemon' onChange={(e) => setSearchPokemon(e.target.value)}/>
+        </div>
+        <div className={`${boxMsg ? `${styles.box_msg_ativado}` : `${styles.box_msg_desativado}`}`}>
+            <p>{msg}</p>
         </div>
             {searchModal && (
                 <div>

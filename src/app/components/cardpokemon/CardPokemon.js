@@ -18,7 +18,7 @@ export default function CardPokemon() {
     useEffect(() => {
         const fetchData = async() => {
           try{
-            const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=50')
+            const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100')
             const results = response.data.results;
     
             const pokemonDataPromises = results.map(async (pokemon) => {
