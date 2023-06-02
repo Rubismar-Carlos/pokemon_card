@@ -1,3 +1,65 @@
-.main {
-    padding-top: 80px;
+
+
+.nav {
+    height: 60px;
+    background-color: yellow;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.nav input {
+    margin-top: 20px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+}
+
+.nav input:focus {
+    outline: none;
+}
+
+.container_card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.box_card {
+    width: 170px;
+    border: 1px solid black;
+}
+
+.box_card h2 {
+    text-align: center;
+    padding: 5px;
+}
+
+.box_card_img {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    background-color: blue;
+}
+
+.box_card_img img {
+    width: 100%;
+    height: 80%;
+}
+
+/* esconder ou mostrar poderes e habilidades */
+.btn_habilidades_ativado {
+    opacity: 1;
+}
+
+.btn_habilidades_inativo {
+    display: none;
+}
+
+.btn_poderes_ativo {
+    opacity: 1;
+}
+
+.btn_poderes_inativo {
+    display: none;
 }
