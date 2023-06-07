@@ -23,6 +23,14 @@ export default function Home() {
   // url imagem do banner
   const urlBanner = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"
 
+  const handleOpenCaracteres = () => {
+    setBtnOpenHabilidades(!btnOpenHabilidades)
+    setBtnHabilidadeVisible(!btnHabilidadeVisible)
+    
+    setBtnOpenPoderes(!btnOpenPoderes)
+    setBtnPoderesVisible(!btnPoderesVisible)
+  }
+
   const handleOpenHabilidades = () => {
     setBtnOpenHabilidades(!btnOpenHabilidades)
     setBtnHabilidadeVisible(!btnHabilidadeVisible)
@@ -81,12 +89,12 @@ export default function Home() {
       <div>
         {pokemonList.length > 0 && (
           <div className={styles.nav_btn}>
-          <button onClick={handleOpenHabilidades} className={styles.btns}>
+          <button onClick={handleOpenHabilidades} className={`${styles.btns} ${btnHabilidadeVisible ? `${styles.btn_hbl_ativado}` : `${styles.btn_hbl_desativado}`}`}>
             {!btnHabilidadeVisible && <div className={styles.box_svg}>< MdOutlineVisibility /></div>}
             {btnHabilidadeVisible && <div className={styles.box_svg}>< MdOutlineVisibilityOff /></div>}
             HABILIDADES
           </button>
-          <button onClick={handleOpenPoderes} className={styles.btns}>
+          <button onClick={handleOpenPoderes} className={`${styles.btns} ${btnPoderesVisible ? `${styles.btn_pds_ativado}` : `${styles.btn_pds_desativado}`}`}>
             {!btnPoderesVisible && <div className={styles.box_svg}>< MdOutlineVisibility /></div>}
             {btnPoderesVisible && <div className={styles.box_svg}>< MdOutlineVisibilityOff /></div>}
             PODERES
@@ -102,7 +110,7 @@ export default function Home() {
               <div key={index} className={styles.pokemon}>
                 <div className={styles.box_card}>
                   <div className={styles.box_background}>
-                    <div className={styles.box_name_img}>
+                    <div className={styles.box_name_img} onClick={handleOpenCaracteres}>
                       <h2>{pokemon.name}</h2>
                       <div className={styles.box_card_img}>
                         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
