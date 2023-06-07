@@ -71,32 +71,48 @@ export default function Home() {
         <div className={styles.container_card}>
           {pokemonList.length > 0 ? (
             pokemonList.map((pokemon, index) => (
-              <div key={index} className={styles.box_card}>
-                <h2>{pokemon.name}</h2>
-                <div className={styles.box_card_img}>
-                  <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+              <div key={index} className={styles.pokemon}>
+              <div className={styles.box_card}>
+                <div className={styles.box_background}>
+                <div className={styles.box_name_img}>
+                  <h2>{pokemon.name}</h2>
+                  <div className={styles.box_card_img}>
+                    <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+                  </div>
+                </div>
                 </div>
                 <div>
-                  <div>
+                  <div className={styles.box_habilidades}>
                     <ul>
+                      <div className={styles.nome_card}>
+                        <p>Habilidades</p>
+                      </div>
                       <div className={`${btnOpenHabilidades ? `${styles.btn_habilidades_ativado}` : `${styles.btn_habilidades_inativo}`}`}>
                         {pokemon.abilities.map((ability, index) => (
-                          <li key={index}>{ability.ability.name}</li>
+                          <div key={index}>
+                              <p>{ability.ability.name}</p>
+                          </div>
                         ))}
                       </div>
                     </ul>
                   </div>
-                  <div>
+                  <div className={styles.box_poderes}>
                     <ul>
+                      <div className={styles.nome_card}>
+                        <p>Poderes</p>
+                      </div>
                       <div className={`${btnOpenPoderes ? `${styles.btn_poderes_ativado}` : `${styles.btn_poderes_inativo}`}`}>
                         {pokemon.stats.map((stat, index) => (
-                          <li key={index}>{stat.stat.name}: {stat.base_stat}</li>
+                          <div key={index}>
+                            <p>{stat.stat.name}: {stat.base_stat}</p>
+                          </div>
                         ))}
                       </div>
                     </ul>
                   </div>
                 </div>
-              </div>      
+              </div>     
+              </div> 
             ))
           ) : (
             <p>Digite o nome de um pokemon</p>
